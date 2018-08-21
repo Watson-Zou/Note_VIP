@@ -1,0 +1,629 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECF29D431BB24F2300D28E03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D421BB24F2300D28E03 /* main.m */; };
+		ECF29D461BB24F2300D28E03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D451BB24F2300D28E03 /* AppDelegate.m */; };
+		ECF29D491BB24F2300D28E03 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D481BB24F2300D28E03 /* ViewController.m */; };
+		ECF29D4C1BB24F2300D28E03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF29D4A1BB24F2300D28E03 /* Main.storyboard */; };
+		ECF29D4E1BB24F2300D28E03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECF29D4D1BB24F2300D28E03 /* Assets.xcassets */; };
+		ECF29D511BB24F2300D28E03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF29D4F1BB24F2300D28E03 /* LaunchScreen.storyboard */; };
+		ECF29D5C1BB24F2300D28E03 /* _1_______Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D5B1BB24F2300D28E03 /* _1_______Tests.m */; };
+		ECF29D671BB24F2300D28E03 /* _1_______UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D661BB24F2300D28E03 /* _1_______UITests.m */; };
+		ECF29D8F1BB24F3700D28E03 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECF29D751BB24F3700D28E03 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		ECF29D901BB24F3700D28E03 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D771BB24F3700D28E03 /* MASCompositeConstraint.m */; settings = {ASSET_TAGS = (); }; };
+		ECF29D911BB24F3700D28E03 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D7A1BB24F3700D28E03 /* MASConstraint.m */; settings = {ASSET_TAGS = (); }; };
+		ECF29D921BB24F3700D28E03 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D7C1BB24F3700D28E03 /* MASConstraintMaker.m */; settings = {ASSET_TAGS = (); }; };
+		ECF29D931BB24F3700D28E03 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D7E1BB24F3700D28E03 /* MASLayoutConstraint.m */; settings = {ASSET_TAGS = (); }; };
+		ECF29D941BB24F3700D28E03 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D821BB24F3700D28E03 /* MASViewAttribute.m */; settings = {ASSET_TAGS = (); }; };
+		ECF29D951BB24F3700D28E03 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D841BB24F3700D28E03 /* MASViewConstraint.m */; settings = {ASSET_TAGS = (); }; };
+		ECF29D961BB24F3700D28E03 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D861BB24F3700D28E03 /* NSArray+MASAdditions.m */; settings = {ASSET_TAGS = (); }; };
+		ECF29D971BB24F3700D28E03 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D891BB24F3700D28E03 /* NSLayoutConstraint+MASDebugAdditions.m */; settings = {ASSET_TAGS = (); }; };
+		ECF29D981BB24F3700D28E03 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D8B1BB24F3700D28E03 /* View+MASAdditions.m */; settings = {ASSET_TAGS = (); }; };
+		ECF29D991BB24F3700D28E03 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D8E1BB24F3700D28E03 /* ViewController+MASAdditions.m */; settings = {ASSET_TAGS = (); }; };
+		ECF29D9E1BB2614400D28E03 /* NSObject+Caculator.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29D9D1BB2614400D28E03 /* NSObject+Caculator.m */; settings = {ASSET_TAGS = (); }; };
+		ECF29DA11BB2615300D28E03 /* CaculatorMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF29DA01BB2615300D28E03 /* CaculatorMaker.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECF29D581BB24F2300D28E03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECF29D361BB24F2300D28E03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECF29D3D1BB24F2300D28E03;
+			remoteInfo = "01-链式编程思想";
+		};
+		ECF29D631BB24F2300D28E03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECF29D361BB24F2300D28E03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECF29D3D1BB24F2300D28E03;
+			remoteInfo = "01-链式编程思想";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ECF29D3E1BB24F2300D28E03 /* 01-链式编程思想.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "01-链式编程思想.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECF29D421BB24F2300D28E03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ECF29D441BB24F2300D28E03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ECF29D451BB24F2300D28E03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ECF29D471BB24F2300D28E03 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		ECF29D481BB24F2300D28E03 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ECF29D4B1BB24F2300D28E03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECF29D4D1BB24F2300D28E03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ECF29D501BB24F2300D28E03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ECF29D521BB24F2300D28E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECF29D571BB24F2300D28E03 /* 01-链式编程思想Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "01-链式编程思想Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECF29D5B1BB24F2300D28E03 /* _1_______Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_1_______Tests.m"; sourceTree = "<group>"; };
+		ECF29D5D1BB24F2300D28E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECF29D621BB24F2300D28E03 /* 01-链式编程思想UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "01-链式编程思想UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECF29D661BB24F2300D28E03 /* _1_______UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_1_______UITests.m"; sourceTree = "<group>"; };
+		ECF29D681BB24F2300D28E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECF29D751BB24F3700D28E03 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECF29D761BB24F3700D28E03 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		ECF29D771BB24F3700D28E03 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		ECF29D781BB24F3700D28E03 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		ECF29D791BB24F3700D28E03 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		ECF29D7A1BB24F3700D28E03 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		ECF29D7B1BB24F3700D28E03 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		ECF29D7C1BB24F3700D28E03 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		ECF29D7D1BB24F3700D28E03 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		ECF29D7E1BB24F3700D28E03 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		ECF29D7F1BB24F3700D28E03 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		ECF29D801BB24F3700D28E03 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		ECF29D811BB24F3700D28E03 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		ECF29D821BB24F3700D28E03 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		ECF29D831BB24F3700D28E03 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		ECF29D841BB24F3700D28E03 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		ECF29D851BB24F3700D28E03 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		ECF29D861BB24F3700D28E03 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		ECF29D871BB24F3700D28E03 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		ECF29D881BB24F3700D28E03 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		ECF29D891BB24F3700D28E03 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		ECF29D8A1BB24F3700D28E03 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		ECF29D8B1BB24F3700D28E03 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		ECF29D8C1BB24F3700D28E03 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		ECF29D8D1BB24F3700D28E03 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		ECF29D8E1BB24F3700D28E03 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		ECF29D9C1BB2614400D28E03 /* NSObject+Caculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Caculator.h"; sourceTree = "<group>"; };
+		ECF29D9D1BB2614400D28E03 /* NSObject+Caculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Caculator.m"; sourceTree = "<group>"; };
+		ECF29D9F1BB2615300D28E03 /* CaculatorMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorMaker.h; sourceTree = "<group>"; };
+		ECF29DA01BB2615300D28E03 /* CaculatorMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorMaker.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECF29D3B1BB24F2300D28E03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF29D541BB24F2300D28E03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF29D5F1BB24F2300D28E03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECF29D351BB24F2300D28E03 = {
+			isa = PBXGroup;
+			children = (
+				ECF29D401BB24F2300D28E03 /* 01-链式编程思想 */,
+				ECF29D5A1BB24F2300D28E03 /* 01-链式编程思想Tests */,
+				ECF29D651BB24F2300D28E03 /* 01-链式编程思想UITests */,
+				ECF29D3F1BB24F2300D28E03 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECF29D3F1BB24F2300D28E03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECF29D3E1BB24F2300D28E03 /* 01-链式编程思想.app */,
+				ECF29D571BB24F2300D28E03 /* 01-链式编程思想Tests.xctest */,
+				ECF29D621BB24F2300D28E03 /* 01-链式编程思想UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECF29D401BB24F2300D28E03 /* 01-链式编程思想 */ = {
+			isa = PBXGroup;
+			children = (
+				ECF29D9A1BB2613300D28E03 /* Caculator */,
+				ECF29D9B1BB2613300D28E03 /* Category */,
+				ECF29D441BB24F2300D28E03 /* AppDelegate.h */,
+				ECF29D451BB24F2300D28E03 /* AppDelegate.m */,
+				ECF29D471BB24F2300D28E03 /* ViewController.h */,
+				ECF29D481BB24F2300D28E03 /* ViewController.m */,
+				ECF29D4A1BB24F2300D28E03 /* Main.storyboard */,
+				ECF29D4D1BB24F2300D28E03 /* Assets.xcassets */,
+				ECF29D4F1BB24F2300D28E03 /* LaunchScreen.storyboard */,
+				ECF29D521BB24F2300D28E03 /* Info.plist */,
+				ECF29D411BB24F2300D28E03 /* Supporting Files */,
+			);
+			path = "01-链式编程思想";
+			sourceTree = "<group>";
+		};
+		ECF29D411BB24F2300D28E03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECF29D741BB24F3700D28E03 /* Masonry */,
+				ECF29D421BB24F2300D28E03 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECF29D5A1BB24F2300D28E03 /* 01-链式编程思想Tests */ = {
+			isa = PBXGroup;
+			children = (
+				ECF29D5B1BB24F2300D28E03 /* _1_______Tests.m */,
+				ECF29D5D1BB24F2300D28E03 /* Info.plist */,
+			);
+			path = "01-链式编程思想Tests";
+			sourceTree = "<group>";
+		};
+		ECF29D651BB24F2300D28E03 /* 01-链式编程思想UITests */ = {
+			isa = PBXGroup;
+			children = (
+				ECF29D661BB24F2300D28E03 /* _1_______UITests.m */,
+				ECF29D681BB24F2300D28E03 /* Info.plist */,
+			);
+			path = "01-链式编程思想UITests";
+			sourceTree = "<group>";
+		};
+		ECF29D741BB24F3700D28E03 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				ECF29D751BB24F3700D28E03 /* Info.plist */,
+				ECF29D761BB24F3700D28E03 /* MASCompositeConstraint.h */,
+				ECF29D771BB24F3700D28E03 /* MASCompositeConstraint.m */,
+				ECF29D781BB24F3700D28E03 /* MASConstraint+Private.h */,
+				ECF29D791BB24F3700D28E03 /* MASConstraint.h */,
+				ECF29D7A1BB24F3700D28E03 /* MASConstraint.m */,
+				ECF29D7B1BB24F3700D28E03 /* MASConstraintMaker.h */,
+				ECF29D7C1BB24F3700D28E03 /* MASConstraintMaker.m */,
+				ECF29D7D1BB24F3700D28E03 /* MASLayoutConstraint.h */,
+				ECF29D7E1BB24F3700D28E03 /* MASLayoutConstraint.m */,
+				ECF29D7F1BB24F3700D28E03 /* Masonry.h */,
+				ECF29D801BB24F3700D28E03 /* MASUtilities.h */,
+				ECF29D811BB24F3700D28E03 /* MASViewAttribute.h */,
+				ECF29D821BB24F3700D28E03 /* MASViewAttribute.m */,
+				ECF29D831BB24F3700D28E03 /* MASViewConstraint.h */,
+				ECF29D841BB24F3700D28E03 /* MASViewConstraint.m */,
+				ECF29D851BB24F3700D28E03 /* NSArray+MASAdditions.h */,
+				ECF29D861BB24F3700D28E03 /* NSArray+MASAdditions.m */,
+				ECF29D871BB24F3700D28E03 /* NSArray+MASShorthandAdditions.h */,
+				ECF29D881BB24F3700D28E03 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				ECF29D891BB24F3700D28E03 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				ECF29D8A1BB24F3700D28E03 /* View+MASAdditions.h */,
+				ECF29D8B1BB24F3700D28E03 /* View+MASAdditions.m */,
+				ECF29D8C1BB24F3700D28E03 /* View+MASShorthandAdditions.h */,
+				ECF29D8D1BB24F3700D28E03 /* ViewController+MASAdditions.h */,
+				ECF29D8E1BB24F3700D28E03 /* ViewController+MASAdditions.m */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		ECF29D9A1BB2613300D28E03 /* Caculator */ = {
+			isa = PBXGroup;
+			children = (
+				ECF29D9F1BB2615300D28E03 /* CaculatorMaker.h */,
+				ECF29DA01BB2615300D28E03 /* CaculatorMaker.m */,
+			);
+			path = Caculator;
+			sourceTree = "<group>";
+		};
+		ECF29D9B1BB2613300D28E03 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				ECF29D9C1BB2614400D28E03 /* NSObject+Caculator.h */,
+				ECF29D9D1BB2614400D28E03 /* NSObject+Caculator.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECF29D3D1BB24F2300D28E03 /* 01-链式编程思想 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECF29D6B1BB24F2300D28E03 /* Build configuration list for PBXNativeTarget "01-链式编程思想" */;
+			buildPhases = (
+				ECF29D3A1BB24F2300D28E03 /* Sources */,
+				ECF29D3B1BB24F2300D28E03 /* Frameworks */,
+				ECF29D3C1BB24F2300D28E03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "01-链式编程思想";
+			productName = "01-链式编程思想";
+			productReference = ECF29D3E1BB24F2300D28E03 /* 01-链式编程思想.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECF29D561BB24F2300D28E03 /* 01-链式编程思想Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECF29D6E1BB24F2300D28E03 /* Build configuration list for PBXNativeTarget "01-链式编程思想Tests" */;
+			buildPhases = (
+				ECF29D531BB24F2300D28E03 /* Sources */,
+				ECF29D541BB24F2300D28E03 /* Frameworks */,
+				ECF29D551BB24F2300D28E03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECF29D591BB24F2300D28E03 /* PBXTargetDependency */,
+			);
+			name = "01-链式编程思想Tests";
+			productName = "01-链式编程思想Tests";
+			productReference = ECF29D571BB24F2300D28E03 /* 01-链式编程思想Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ECF29D611BB24F2300D28E03 /* 01-链式编程思想UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECF29D711BB24F2300D28E03 /* Build configuration list for PBXNativeTarget "01-链式编程思想UITests" */;
+			buildPhases = (
+				ECF29D5E1BB24F2300D28E03 /* Sources */,
+				ECF29D5F1BB24F2300D28E03 /* Frameworks */,
+				ECF29D601BB24F2300D28E03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECF29D641BB24F2300D28E03 /* PBXTargetDependency */,
+			);
+			name = "01-链式编程思想UITests";
+			productName = "01-链式编程思想UITests";
+			productReference = ECF29D621BB24F2300D28E03 /* 01-链式编程思想UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECF29D361BB24F2300D28E03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = yz;
+				TargetAttributes = {
+					ECF29D3D1BB24F2300D28E03 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					ECF29D561BB24F2300D28E03 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = ECF29D3D1BB24F2300D28E03;
+					};
+					ECF29D611BB24F2300D28E03 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = ECF29D3D1BB24F2300D28E03;
+					};
+				};
+			};
+			buildConfigurationList = ECF29D391BB24F2300D28E03 /* Build configuration list for PBXProject "01-链式编程思想" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECF29D351BB24F2300D28E03;
+			productRefGroup = ECF29D3F1BB24F2300D28E03 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECF29D3D1BB24F2300D28E03 /* 01-链式编程思想 */,
+				ECF29D561BB24F2300D28E03 /* 01-链式编程思想Tests */,
+				ECF29D611BB24F2300D28E03 /* 01-链式编程思想UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECF29D3C1BB24F2300D28E03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECF29D8F1BB24F3700D28E03 /* Info.plist in Resources */,
+				ECF29D511BB24F2300D28E03 /* LaunchScreen.storyboard in Resources */,
+				ECF29D4E1BB24F2300D28E03 /* Assets.xcassets in Resources */,
+				ECF29D4C1BB24F2300D28E03 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF29D551BB24F2300D28E03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF29D601BB24F2300D28E03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECF29D3A1BB24F2300D28E03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECF29D971BB24F3700D28E03 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				ECF29DA11BB2615300D28E03 /* CaculatorMaker.m in Sources */,
+				ECF29D951BB24F3700D28E03 /* MASViewConstraint.m in Sources */,
+				ECF29D901BB24F3700D28E03 /* MASCompositeConstraint.m in Sources */,
+				ECF29D961BB24F3700D28E03 /* NSArray+MASAdditions.m in Sources */,
+				ECF29D491BB24F2300D28E03 /* ViewController.m in Sources */,
+				ECF29D461BB24F2300D28E03 /* AppDelegate.m in Sources */,
+				ECF29D931BB24F3700D28E03 /* MASLayoutConstraint.m in Sources */,
+				ECF29D431BB24F2300D28E03 /* main.m in Sources */,
+				ECF29D9E1BB2614400D28E03 /* NSObject+Caculator.m in Sources */,
+				ECF29D991BB24F3700D28E03 /* ViewController+MASAdditions.m in Sources */,
+				ECF29D981BB24F3700D28E03 /* View+MASAdditions.m in Sources */,
+				ECF29D941BB24F3700D28E03 /* MASViewAttribute.m in Sources */,
+				ECF29D911BB24F3700D28E03 /* MASConstraint.m in Sources */,
+				ECF29D921BB24F3700D28E03 /* MASConstraintMaker.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF29D531BB24F2300D28E03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECF29D5C1BB24F2300D28E03 /* _1_______Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF29D5E1BB24F2300D28E03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECF29D671BB24F2300D28E03 /* _1_______UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECF29D591BB24F2300D28E03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECF29D3D1BB24F2300D28E03 /* 01-链式编程思想 */;
+			targetProxy = ECF29D581BB24F2300D28E03 /* PBXContainerItemProxy */;
+		};
+		ECF29D641BB24F2300D28E03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECF29D3D1BB24F2300D28E03 /* 01-链式编程思想 */;
+			targetProxy = ECF29D631BB24F2300D28E03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECF29D4A1BB24F2300D28E03 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECF29D4B1BB24F2300D28E03 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECF29D4F1BB24F2300D28E03 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECF29D501BB24F2300D28E03 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECF29D691BB24F2300D28E03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ECF29D6A1BB24F2300D28E03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECF29D6C1BB24F2300D28E03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "01-链式编程思想/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "iThinker.-1-------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ECF29D6D1BB24F2300D28E03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "01-链式编程思想/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "iThinker.-1-------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		ECF29D6F1BB24F2300D28E03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "01-链式编程思想Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "iThinker.-1-------Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/01-链式编程思想.app/01-链式编程思想";
+			};
+			name = Debug;
+		};
+		ECF29D701BB24F2300D28E03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "01-链式编程思想Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "iThinker.-1-------Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/01-链式编程思想.app/01-链式编程思想";
+			};
+			name = Release;
+		};
+		ECF29D721BB24F2300D28E03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "01-链式编程思想UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "iThinker.-1-------UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "01-链式编程思想";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		ECF29D731BB24F2300D28E03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "01-链式编程思想UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "iThinker.-1-------UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "01-链式编程思想";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECF29D391BB24F2300D28E03 /* Build configuration list for PBXProject "01-链式编程思想" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF29D691BB24F2300D28E03 /* Debug */,
+				ECF29D6A1BB24F2300D28E03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECF29D6B1BB24F2300D28E03 /* Build configuration list for PBXNativeTarget "01-链式编程思想" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF29D6C1BB24F2300D28E03 /* Debug */,
+				ECF29D6D1BB24F2300D28E03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ECF29D6E1BB24F2300D28E03 /* Build configuration list for PBXNativeTarget "01-链式编程思想Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF29D6F1BB24F2300D28E03 /* Debug */,
+				ECF29D701BB24F2300D28E03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ECF29D711BB24F2300D28E03 /* Build configuration list for PBXNativeTarget "01-链式编程思想UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF29D721BB24F2300D28E03 /* Debug */,
+				ECF29D731BB24F2300D28E03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECF29D361BB24F2300D28E03 /* Project object */;
+}
