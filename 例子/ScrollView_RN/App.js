@@ -26,6 +26,7 @@ export default class App extends Component<Props> {
         return (
             <View style={styles.container}>
                 <ScrollView
+                    ref="scrollView"
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     pagingEnabled={true}
@@ -39,6 +40,36 @@ export default class App extends Component<Props> {
                 </View>
             </View>
         );
+    }
+
+    //实现一些复杂的操作
+    componentDidMount() {
+        //开启定时器
+        this.startTimer();
+    }
+
+    //开启定时器
+    startTimer() {
+        //1.拿到csrollview
+        var scrollView = this.refs.scrollView;
+        var  imgCount = ImageData.data.length;
+        //2.添加定时器
+        this.setInterval(function () {
+            console.log('1');
+            //2.1设置圆点
+            var activePage = 0;
+            //2.2判断
+            if ((this.state.currentPage +1) >=  imgCount) {//越界
+                activePage = 0;
+            } else {
+                activePage = this.state.currentPage + 1;
+            }
+            //2.3 更新状态机
+            this.setState({
+                currentPage: activePage
+            })
+
+        }, this.props.duration);
     }
 
     rendreAllImage() {
@@ -58,6 +89,11 @@ export default class App extends Component<Props> {
         //返回数组
         return allImage;
     }
+}
+
+//设置固定值
+App.defaultProps = {
+    duration: 1000
 }
 
 const styles = StyleSheet.create({
