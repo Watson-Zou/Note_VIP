@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="echarts.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /*清除点击效果*/
+        div,a,img {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select:none;
+        }
+        /*清除换行*/
+        div {
+            white-space:nowrap;
+        }
+        #container {
+            width: 100%;
+            height: 270px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="container"></div>
+
+<script type="text/javascript">
+
+    //记录传进来的数据
+    var allDatas = [];
+    //展现数据天数
+    var dayCounts = 0;
+    //y轴标记线数据
+    var yLineDatas = [];
+    //x轴开始和结束坐标不显示标记数组
+    var markPointData = [];
+    //设置y轴单位
+    var Unit = '';
+    //折线图颜色
+    var lineColor = '#1B7CF8';
+
+    //数据格式
+    /*
+     datas:{"data":["2000","1800","1600","1600","1600","1600"],
+            "language":"en"}
+         data: 展示数据
+         language:语言 'en'代表英文
+     */
+
+    //原生调用传数据
+    function callJavaScript(datas) {
+
+        allDatas = datas;
+
+        //只展示活期数据
+        var currentSum = changeDatas(allDatas['data']);
+        //转换后的值
+        allDatas['data'] = currentSum["NewArr"];
+        //y坐标单位
+        Unit = currentSum["Unit"];
+
+        //渲染折线图
+        setupEcharts(allDatas['data'].slice(0));
+    }
+
+    //折线图配置
+    function setupEcharts(datas) {
+
+        dayCounts = datas.length;
+
+        var showYline = true;
+        if (dayCounts > 10) {
+            showYline = false;
+        }
+
+        //设置最后一个点圈圈
+        var lastPoint = {
+            value: datas[dayCounts - 1],
+            symbol: 'emptyCircle',
+            symbolSize: 8,
+            itemStyle: {//设置点颜色
+                normal: {
+                    borderColor: lineColor,  // 点边线的颜色
+                    borderWidth: 2
+                },
+                emphasis: {
+
+                }
+            }
+        };
+        datas[dayCounts - 1] = lastPoint;
+        //初始化设置折线图
+        var dom = document.getElementById("container");
+        dom.removeAttribute("_echarts_instance_");//清空缓存
+        var myChart = echarts.init(dom);
+        var option = {
+            tooltip: {//提示框,隐藏
+                show: false,
+                trigger: 'axis',
+                backgroundColor : 'rgba(255,0,255,0.7)',
+                borderColor : '#f50',
+                borderRadius : 8,
+                borderWidth: 2,
+                padding: 10,
+                textStyle: {
+                    decoration: 'none',
+                    fontSize: 15
+                },
+                formatter: function (params) {//设置提示框内容
+                    var res =  params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        res += '<br/>' + params[i].seriesName + ' : ' + params[i].value + '亿';
+                    }
+                    return res;
+                }
+            },
+            grid: {//网格设置
+                x: 22,
+                y: 40,
+                x2: 27,
+                y2: 13,
+                show: false,
+                borderColor: "#e4e4e4",
+                shadowColor: "#e4e4e4",
+                borderWidth: "0.2",
+                containLabel: true
+            },
+            xAxis: [//x轴设置
+                {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: getDates(),
+                    axisLine: {//轴线
+                        show: true,
+                        lineStyle: {
+                            color: "#e4e4e4",
+                            type: "solid"
+                        }
+                    },
+                    axisLabel: {//轴文字
+                        interval: 0,//取值间隔
+                        margin: 13,
+                        textStyle: {
+                            color: 'rgba(108, 122, 144, 0.5)',
+                            fontSize: 12,
+                            fontFamily: 'PingFangSC-Regular'
+                        }
+                    },
+                    axisTick: {//轴标记
+                        show: false
+                    },
+                    splitLine: {//背景图的内置表格中“边框”的颜色线条 这个是x轴的竖线
+                        show: showYline,
+                        lineStyle: {
+                            color: "#e4e4e4",
+                            type: "solid"
+                        }
+                    }
+                }
+            ],
+            yAxis: [//y轴设置
+                {
+                    type: 'value',
+                    splitNumber: 2,
+                    z: 10,//提高层级
+                    axisLine: {//轴线
+                        show: !showYline,
+                        lineStyle: {
+                            color: "#e4e4e4",
+                            type: "solid"
+                        }
+                    },
+                    axisTick: {//轴标记
+                        show: false
+                    },
+                    splitLine: {//边框线
+                        show: false
+                    },
+                    axisLabel: {
+                        show: true,
+                        inside: true,
+                        margin: 1,//刻度标签与轴线之间的距离
+                        padding: [0, 0, 10, 0],
+                        textStyle: {
+                            color: '#58627C ',
+                            fontSize: 11,
+                            fontFamily: 'PingFangSC-Regular'
+                        }
+
+                    },
+                    name: Unit,//坐标轴名称
+                    nameGap: 20,//坐标轴名称与轴线之间的距离
+                    nameTextStyle: {//坐标轴名称字体设置
+                        color: "#58627C",
+                        fontSize: 11,
+                        fontFamily: 'PingFangSC-Regular',
+                        padding: [0, 0, 0, 10]
+                    }
+                }
+            ],
+            series: [
+                {
+                    type: 'line',
+                    symbol: 'none',//隐藏点
+                    smooth: false,//true：曲线数，false：折线图
+                    areaStyle: {//区域填充,颜色渐变
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: lineColor
+                            }, {
+                                offset: 1,
+                                color: 'white'
+                            }])
+                        }
+                    },
+                    itemStyle: {//连线设置
+                        normal: {
+                            lineStyle: {
+                                color: lineColor,
+                                type: 'solid',
+                                width: 2,
+                                shadowColor: 'rgba(20, 91, 181, 0.17)',
+                                shadowOffsetY: 2.5,
+                                shadowBlur: 2
+                            }
+                        }
+                    },
+                    data: datas,
+                    markLine : {
+                        symbol: 'none',
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {
+                                    color: "#e4e4e4",
+                                    type: "solid"
+                                }
+                        },
+                        emphasis: {
+
+                         }
+                        },
+                        data : yLineDatas
+                    },
+                    markPoint : {
+                        symbol: 'circle',
+                        symbolSize: 30,
+                        itemStyle : {
+                            normal : {
+                                color: 'ffffff',
+                                label : {
+                                    show : true,
+                                    textStyle: {
+                                        color: 'rgba(108, 122, 144, 0.5)',
+                                        fontSize: 12,
+                                        fontFamily: 'PingFangSC-Regular'
+                                    },
+                                    formatter: function (params) {
+                                        return params.value;
+                                    }
+                                }
+                            },
+                            emphasis : {
+                                label : {
+                                    show : false,
+
+                                }
+                            }
+                        },
+                        data : markPointData
+                    }
+                }
+            ]
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    }
+
+    //构造日期数组
+    function getDates () {
+        var dates = [];
+        if (dayCounts <= 10) {
+            for (var  i = 0; i < dayCounts; i++) {
+                dates.push(getDay(-i));
+            }
+        } else {
+            var gapNum = dayCounts / 6;
+            for (var  i = 0; i < dayCounts; i++) {
+                if ((i == 0) || (i == dayCounts - 1) || (i % gapNum == 0)) {
+
+                    var iDay = getDay(-i);
+                    dates.push(iDay);
+                    //设置开始日期和结束日期
+                    if (((i == 0) || (i == dayCounts - 1))) {
+                        markPointData.push({xAxis: iDay, y:250, value: iDay})
+                    }
+                    if (i != dayCounts - 1) {//起点y轴不用画线
+                        yLineDatas.push([
+                            {yAxis: 0, xAxis: iDay},
+                            {yAxis: 'max',xAxis: iDay}]);
+                    }
+                } else {
+                    dates.push("");
+                }
+            }
+        }
+        return dates.reverse();
+    };
+
+    //获取指定日期
+    function getDay(day) {
+        var today = new Date();
+        var targetDay = today.getTime() + 1000 * 60 * 60 * 24 * day;
+        today.setTime(targetDay);
+        var tMonth = today.getMonth() + 1;
+        var tDate = today.getDate();
+        return tMonth + "." + tDate;
+    }
+
+    //计算总额，转换数据
+    function changeDatas(array) {
+        //获取数组最大值
+        var maxNum = Math.max.apply(null,array);
+        var changeDict = changeUnit(maxNum);
+        //设置y坐标单位
+        var unit = changeDict["Unit"];
+        var count = array.length;
+        
+        for (var i = 0; i < count; i++) {
+            array[i] /= changeDict["UnitValue"];
+        }
+        var dic = {"NewArr":array, "Unit":unit};
+        return dic;
+    }
+
+    //单位转换
+    function changeUnit(changeValue) {
+        var unitValue = 0;//倍率
+        var unit = '';//单位
+        if (changeValue < 10000) {
+            if (allDatas['language'].toLowerCase() == 'en') {
+                unit = 'Yuan';
+            } else {
+                unit = '元';
+            }
+            unitValue = 1;
+        } else if (changeValue >= 10000 && changeValue < 100000000) {
+            if (allDatas['language'].toLowerCase() == 'en') {
+                unit = '10 K';
+            } else {
+                unit = '万';
+            }
+            unitValue = 10000;
+        } else if (changeValue >= 100000000 && changeValue < 1000000000000) {
+            if (allDatas['language'].toLowerCase() == 'en') {
+                unit = '100 M';
+            } else {
+                unit = '亿';
+            }
+            unitValue = 100000000;
+        } else if (changeValue >= 1000000000000) {
+            if (allDatas['language'].toLowerCase() == 'en') {
+                unit = 'TN';
+            } else {
+                unit = '万亿';
+            }
+            unitValue = 1000000000000;
+        }
+        return {"Unit":unit, "UnitValue":unitValue};
+
+    }
+
+</script>
+</body>
+</html>

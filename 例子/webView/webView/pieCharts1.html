@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script src="echarts.js"></script>
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #main {
+            width:600px;
+            height:600px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+<div id="main"></div>
+<script>
+
+    // 圆环图各环节的颜色
+    var pieColor = ['#C3282B', '#D91278', '#097CE2', '#05C0BA', '#D91278', '#00A65F', '#C0C7DA'];
+    //内外环连线数据
+    var lineDatas = [];
+
+    function loadPieCharts(data) {
+        var option = {
+//            tooltip : {
+//                show: true,
+//                formatter: "{a} <br/>{b} : {c} ({d}%)"
+//            },
+            xAxis: {
+                type: 'value',
+                max: 240.5,
+                show: false
+            },
+            yAxis: {
+                type: 'value',
+                max: 240.5,
+                show: false
+            },
+            calculable : false,
+            series : [
+
+                {
+                    name:'人民币余额分布',
+                    type:'pie',
+                    center : ['50%', '50%'],
+                    radius : [150, 154],
+                    hoverAnimation: false,//取消扇区上的放大动画效果
+                    color : pieColor, //圆环的颜色
+                    itemStyle : {
+                        normal : {
+                            label : {
+                                show: false,
+                                formatter : "{d}%",//设置显示为比例
+                                //formatter : function (params) {
+                                    //return (params.percent - 0).toFixed(2) + '%'
+                                //},
+                                textStyle : {
+                                    align : 'center',
+                                    baseline : 'middle',
+                                    fontFamily : 'SFUIDisplay-Regular',
+                                    fontSize : 12,
+                                    fontWeight : 'bolder'
+                                }
+                            },
+                            labelLine : {
+                                show : false,
+                                length : 90,
+                                color : 'rgba(255,180,0,0.2)',
+                                lineStyle : {
+                                    width : 0.5,
+                                    type : 'solid'
+                                }
+                            }
+                        }
+                    },
+                    data:data,
+                    markPoint : {
+                        symbolSize:40,
+                        itemStyle : {
+                            normal : {
+                                label : {
+                                    show : true,
+                                    position: 'top',
+                                    formatter: function (params) {//格式化展现（标签+值）
+                                        return params.value + params.name;
+                                    }
+                                }
+                            },
+                            emphasis : {
+                                label : {
+                                    show : false
+                                }
+                            }
+                        },
+                        data : loadMarkDatas(data)
+                    }
+                },
+//                {
+//                    name:'外环',
+//                    type:'pie',
+//                    center : ['50%', '50%'],
+//                    radius : [240, 240.5],
+//                    hoverAnimation: false,
+//                    color : 'rgba(88,98,124,0.2)',
+//                    itemStyle : {
+//
+//                        normal : {
+//                            label : {
+//                                show : false
+//                            },
+//                            labelLine : {
+//                                show : false
+//                            }
+//                        },
+//                        emphasis : {
+//                            label : {
+//                                show : false
+//                            },
+//                            labelLine : {
+//                                show : false
+//                            }
+//                        }
+//                    },
+//                    data:[
+//                        {value:0}
+//                    ]
+//                },
+                {
+                    name:'连线',
+                    type: 'scatter',
+                    z: 1,
+                    symbolSize: 240.5 * 2,
+                    symbol: 'emptyCircle',
+                    hoverAnimation: false,//取消扇区上的放大动画效果
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(88,98,124,0.2)',
+                            borderWidth: 0.5,
+                            label : {show: false}
+                        }
+                    },
+                    data : [[240.5 / 2,240.5 / 2]],
+                    markLine : {
+                        symbol : 'none',
+                        effect : {
+                            show: true,
+                            period: 0,
+                            color : 'blue',
+                        },
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {
+                                    type : 'solid',
+                                    width : 0.5,
+                                    color : 'rgba(88,98,124,0.2)'
+                                }
+                            },
+                            emphasis: {
+                                lineStyle: {
+                                    width : 0.5
+                                }
+                            }
+                        },
+                        data : lineDatas
+                    }
+
+                }
+            ]
+        };
+        var chart = echarts.init(document.getElementById('main'));
+        chart.setOption(option);
+    }
+
+    //处理标注图片数据
+    function loadMarkDatas(data) {
+        var count = data.length;
+        //计算总值
+        var sum = 0;
+        for (var i = 0; i < count; i++) {
+            sum += parseFloat(data[i]);
+        }
+        var scaleAll = 0;
+        var markData = [];
+        for (var i = 0; i < count; i++) {
+            //获取图片及坐标设置
+            var dic = {};
+            //计算比例
+            var scale = data[i] / sum;
+            dic['name'] = '%';
+            dic['value'] = (scale * 100).toFixed(2);
+            var angleScale = scale  / 2 + scaleAll;
+            var outPointX = caculateX(angleScale);
+            var outPointY = caculateY(angleScale);
+            dic['x'] = outPointX;
+            dic['y'] = outPointY;
+            dic['symbol'] = 'image://image/text.png';
+            dic['itemStyle'] = {
+                normal:{color:pieColor[i]}
+            }
+            markData.push(dic);
+            scaleAll += scale;
+
+            //处理连线数据
+            //[{name: '标线1起点', x: 50, y: 20},
+            // {name: '标线1终点', x: 150, y: 120}]
+            var lineAxis = [];
+            var fromLine = {x: caculateInnerX(angleScale), y: caculateInnerY(angleScale)};
+            var toLine = {x: outPointX, y: outPointY};
+            lineAxis.push(fromLine);
+            lineAxis.push(toLine);
+            lineDatas.push(lineAxis);
+        }
+        return markData;
+    }
+
+    //计算外圆横坐标
+    function caculateX(x) {//传入比例
+        //转化为角度
+        var angle = x * 360;
+        //获取正弦值
+        var sinX =  Math.sin (2 * Math.PI * angle / 360 );
+        //计算横坐标
+        return (300 + 240.5 * sinX);
+
+    }
+
+    //计算外圆纵坐标
+    function caculateY(x) {//传入比例
+        //获取角度
+        var angle = x * 360;
+        //获取正弦值
+        var cosY =  Math.cos(2 * Math.PI * angle / 360);
+        //计算横坐标
+        return (300 - 240.5 * cosY);
+
+    }
+    //计算内圆横坐标
+    function caculateInnerX(x) {//传入比例
+        //转化为角度
+        var angle = x * 360;
+        //获取正弦值
+        var sinX =  Math.sin (2 * Math.PI * angle / 360 );
+        //计算横坐标
+        return (300 + 154 * sinX);
+
+    }
+
+    //计算内圆纵坐标
+    function caculateInnerY(x) {//传入比例
+        //获取角度
+        var angle = x * 360;
+        //获取正弦值
+        var cosY =  Math.cos(2 * Math.PI * angle / 360);
+        //计算横坐标
+        return (300 - 154 * cosY);
+
+    }
+
+    loadPieCharts(['620','150','90','80','40','15','5']);
+
+
+</script>
+</body>
+</html>

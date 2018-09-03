@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="echarts.js"></script>
+    <script type="text/javascript" src="echarts/ecStat.min.js"></script>
+    <script type="text/javascript" src="echarts/dataTool.min.js"></script>
+    <script type="text/javascript" src="echarts/china.js"></script>
+    <script type="text/javascript" src="echarts/world.js"></script>
+    <script type="text/javascript" src="echarts/bmap.js"></script>
+    <script type="text/javascript" src="echarts/jquery-1.11.0.min.js"></script>
+    <!--<script type="text/javascript" src="echarts-all-3.js"></script>-->
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    
+
+
+</head>
+<body style="height:100%;">
+<div id="main" style="width:100%;height:90%"></div>
+<script>
+
+    var planePath = 'path://m121.5,173.66l245,1';//直线
+    var initWidth = 300;//默认一级机构大小，每级递减50；最小50，
+    var localtionMap = {};//经纬度
+    var valData = [];//客户号大小数据
+    var arrCLTNBR = [];
+    var arrLines = [];//连线数据
+    var customData = null;//客户号列表
+    var customRely = null;//客户号关系列表
+    var accountData = null;//账号列表
+    //地图样式
+    var bmapOption = {
+        center: [110.52, 33.898632],
+        zoom: 5,
+        roam: true,
+        mapStyle: {
+            styleJson: [{
+                'featureType': 'water',//调整海颜色
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#ffffff'
+                }
+            }, {
+                'featureType': 'land', //调整土地颜色
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#f3f3f3'
+                }
+            }, {
+                'featureType': 'railway',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'highway',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#fdfdfd'
+                }
+            }, {
+                'featureType': 'highway',
+                'elementType': 'labels',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'arterial',
+                'elementType': 'geometry',
+                'stylers': {
+                    'color': '#fefefe'
+                }
+            }, {
+                'featureType': 'arterial',
+                'elementType': 'geometry.fill',
+                'stylers': {
+                    'color': '#fefefe'
+                }
+            }, {
+                'featureType': 'poi',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'green',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'subway',
+                'elementType': 'all',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'manmade',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#d1d1d1'
+                }
+            }, {
+                'featureType': 'local',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#d1d1d1'
+                }
+            }, {
+                'featureType': 'arterial',  //调整一些干道是否可见
+                'elementType': 'labels',
+                'stylers': {
+                    'visibility': 'off'
+                }
+            }, {
+                'featureType': 'boundary',
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#fefefe'
+                }
+            }, {
+                'featureType': 'building', //调整建筑物颜色
+                'elementType': 'all',
+                'stylers': {
+                    'color': '#d1d1d1'
+                }
+            }, {
+                'featureType': 'label',
+                'elementType': 'labels.text.fill',
+                'stylers': {
+                    'color': '#999999'
+                }
+            }]
+        }
+    };
+
+    var isInArr = function (val, Arr) {
+        var res = false;
+        for (var i = 0; i < Arr.length; i++) {
+            if (Arr[i] == val) {
+                res = true;
+                break;
+            }
+        }
+        return res;
+    };
+    //判断客户关系接口中的客户号是否有经纬度
+    var hasLNGTDE = function (CLTNBR, List) {
+        var res = false;
+        for (var i = 0; i < List.length; i++) {
+            if (List[i]["CLTNBR"] == CLTNBR && List[i]["LNGTDE"] != "") {
+                res = true;
+                break;
+            }
+        }
+        return res;
+    };
+    //设置连线数据
+    var setNextCustomLine = function (parentId, parentName, list, customData, arr) {
+        //一级到二级之间的连线
+//                var BJData = [
+//                    [{name:'中国KL实业集团有限公司'}, {name:'中国KL制药股份有限公司'}],[{}]]
+//                var arrayLines= [BJData,SCData,KMData,GZDat]
+        var res = [];
+        for (var i = 0; i < list.length; i++) {
+            if (!isInArr(list[i]["CLTNBR"], arr)) continue;
+            if (parentId == list[i]["FATCLT"]) {
+                if (isHasNext(list[i]["CLTNBR"], list)) {
+                    arrLines.push([[{name: parentName}, {name: list[i]["CLTNAM"]}]]);
+                    setNextCustomLine(list[i]["CLTNBR"], list[i]["CLTNAM"], list, customData, arr);
+                } else {
+                    arrLines.push([[{name: parentName}, {name: list[i]["CLTNAM"]}]]);
+                    arrLines.push([[{name: list[i]["CLTNAM"]}, {name: list[i]["CLTNAM"]}]]);
+                }
+            }
+        }
+    };
+    //根据客户号获取客户名称
+    var getCLTNAMByNBR = function (CLTNBR, List) {
+        var res = "";
+        for (var i = 0; i < List.length; i++) {
+            if (List[i]["CLTNBR"] == CLTNBR) {
+                res = List[i]["CLTNAM"];
+                break;
+            }
+        }
+        return res;
+    };
+    //根据客户名称获取客户号
+    var getNBRByNam = function (CLTNAM, List) {
+        var res = "";
+        for (var i = 0; i < List.length; i++) {
+            if (List[i]["CLTNAM"] == CLTNAM) {
+                res = List[i]["CLTNBR"];
+                break;
+            }
+        }
+        return res;
+    };
+    //是否有下级
+    var isHasNext = function (CLTNBR, List) {
+        var res = false;
+        for (var i = 0; i < List.length; i++) {
+            if (List[i]["FATCLT"] == CLTNBR && isInArr(List[i]["CLTNBR"], arrCLTNBR)) {
+                res = true;
+                break;
+            }
+        }
+        return res;
+    };
+    //设置机构号的大小
+    var setValData = function (parentId, customRely, val) {
+        val = val < 50 ? 50 : val;
+        for (var i = 0; i < customRely.length; i++) {
+            if (!isInArr(customRely[i]["CLTNBR"], arrCLTNBR)) continue;
+            if (customRely[i]["FATCLT"] == parentId) {
+                valData.push({name: customRely[i]["CLTNAM"], value: val});
+                if (isHasNext(customRely[i]["CLTNBR"], customRely)) {
+                    setValData(customRely[i]["CLTNBR"], customRely, val - 50);
+                }
+            }
+        }
+    };
+    //根据名称获取当前选择机构
+    var getValDataByNam = function (CLTNAM) {
+        var res = [];
+        for (var i = 0; i < valData.length; i++) {
+            if (valData[i].name == CLTNAM) {
+                res.push(valData[i]);
+                break;
+            }
+        }
+        return res;
+    };
+    //根据客户名称获取账户
+    var getAccountDataByNam = function (CLTNAM) {
+        var res = [];
+        var CLTNBR = getNBRByNam(CLTNAM, customData);
+        for (var i = 0; i < accountData.length; i++) {
+            if (accountData[i]["CLTNBR"] == CLTNBR && accountData[i]["LNGTDE"] != "") {
+                res.push({name: accountData[i]["OPNBNK"], value: 200, money: accountData[i]["SUMBAL"]});
+            }
+        }
+        return res;
+    };
+    var getLinesByNam = function (CLTNAM) {
+        var res = [];
+        for (var i = 0; i < arrLines.length; i++) {
+            if (arrLines[i][0][0].name == CLTNAM) {
+                res.push(arrLines[i][0]);
+            }
+        }
+        return res;
+    };
+    function initBmap() {
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = null;
+        var origZoom = 5;//地图放大倍数
+        var origX = 110.52;//地图中心位置X
+        var origY = 33.898632;//地图中心位置Y
+        var data1 = convertData(valData);
+
+        var initSeriesData = [{
+            name: '机构分布',
+            type: 'scatter',
+            coordinateSystem: 'bmap',
+            data: data1,
+            symbolSize: function (val) {
+                return val[2] / 10;
+            },
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: false
+                },
+                emphasis: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#9bb4f7'
+                }
+            }
+        }];
+        convertLinesData(arrLines, null, initSeriesData);
+        option = {
+            title: {
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                //自定义气泡中数据的显示格式
+                formatter: function (params) {
+                    if (params.seriesType == "lines") {
+                        return "";
+                    }
+                    var s_tip = params.name;
+                    var res = "";
+                    if (params.data.money)
+                        res += "CNY " + params.data.money + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "<br />";
+                    res += "<span style='font-size: 12px;color: #c7c2c2'>" + s_tip + "</span>";
+                    return res;
+                },
+                textStyle: {
+                    fontSize: 16//字体大小
+                }
+            },
+            bmap: bmapOption,
+            series: initSeriesData
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option);
+            setTimeout(function () {
+                myChart.resize();
+            }, 100);
+
+        }
+
+        myChart.on('click', function (params) {
+            var accountData = null;
+            var curData = null;
+            option.series = [];
+            origZoom = myChart.getOption().bmap[0]["zoom"];
+            origX = myChart.getOption().bmap[0].center[0];
+            origY = myChart.getOption().bmap[0].center[1];
+            if (params.seriesType == "lines" || params.color == "#FF9292") {
+                return;
+            }
+            accountData = getAccountDataByNam(params.name);
+            curData = getLinesByNam(params.name);
+            //账户分布
+            var obj = {
+                name: '机构下的账户分布',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                data: convertData(accountData),
+                symbolSize: function (val) {
+                    return val[2] / 10;
+                },
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: false
+                    },
+                    emphasis: {
+                        show: false//鼠标悬浮到位置时不显示名称
+                    }
+                },
+                zlevel: 12,//圈圈显示在线的上面
+                itemStyle: {
+                    normal: {
+                        color: '#FF9292'
+                    },
+                    emphasis: {
+                        color: '#F44B3B'
+                    }
+                }
+            };
+
+            var scatter = [];//加深机构
+            var scatterWeak = [];//弱化机构
+            separateOrg(curData, scatter, scatterWeak);
+            //机构分布
+            var deepCusObj = {
+                name: '加深机构',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                data: convertData(scatter),
+                symbolSize: function (val) {
+                    return val[2] / 10;
+                },
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: false
+                    },
+                    emphasis: {
+                        show: false
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#1B7CF8'
+                    }
+                }, zlevel: 10
+            };
+            option.series.push(deepCusObj);
+
+            var effectScatterObj = {
+                name: '涟漪机构',
+                type: 'effectScatter',
+                coordinateSystem: 'bmap',
+                data: convertData(getValDataByNam(params.name)),
+                symbolSize: function (val) {
+                    return val[2] / 10;
+                },
+                showEffectOn: 'render',
+                rippleEffect: {
+                    brushType: 'stroke'
+                },
+                hoverAnimation: true,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: false
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#1B7CF8'
+                    }
+                },
+                zlevel: 11
+            };
+            option.series.push(effectScatterObj);
+
+            var lowscatter = {
+                name: '弱化机构',
+                type: 'scatter',
+                coordinateSystem: 'bmap',
+                data: convertData(scatterWeak),
+                symbolSize: function (val) {
+                    return val[2] / 10;
+                },
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: false
+                    },
+                    emphasis: {
+                        show: false
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#9bb4f7'
+                    }
+                },
+                zlevel: 9
+            };
+
+            option.series.push(lowscatter);
+            convertLinesData(arrLines, curData, option.series);
+
+            option.bmap["zoom"] = origZoom;
+            option.bmap.center[0] = origX;
+            option.bmap.center[1] = origY;
+            option.series.push(obj);
+            myChart.setOption(option);
+            return false;
+        });
+        myChart.on('mouseout', function (params) {
+            if (myChart.getOption().bmap != null) {
+                origZoom = myChart.getOption().bmap[0]["zoom"];
+                origX = myChart.getOption().bmap[0].center[0];
+                origY = myChart.getOption().bmap[0].center[1];
+                option.bmap["zoom"] = origZoom;
+                option.bmap.center[0] = origX;
+                option.bmap.center[1] = origY;
+            }
+            myChart.setOption(option);
+
+        });
+        myChart.on('dblclick', function (params) {
+            return false;
+        });
+
+        if (option && typeof option === "object") {
+            myChart.setOption(option);
+            setTimeout(function () {
+                myChart.resize();
+            }, 100);
+
+        }
+    }
+
+    //返回不同状态机构
+    var configScatter = function (scatterArr, scatter, scatterWeak) {
+        var obj0 = {
+            name: '一级机构',
+            type: 'scatter',
+            coordinateSystem: 'bmap',
+            data: convertData(scatter),
+            symbolSize: function (val) {
+                return val[2] / 10;
+            },
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: false
+                },
+                emphasis: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#1B7CF8'
+                }
+            },
+            zlevel: 10
+        };
+        var obj1 = {
+            name: '二级及以下机构',
+            type: 'effectScatter',
+            coordinateSystem: 'bmap',
+            data: convertData(scatter.sort(function (a, b) {
+                return b.value - a.value;
+            }).slice(0, 1)),
+            symbolSize: function (val) {
+                return val[2] / 10;
+            },
+            showEffectOn: 'render',
+            rippleEffect: {
+                brushType: 'stroke'
+            },
+            hoverAnimation: true,
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#1B7CF8'
+                }
+            },
+            zlevel: 10
+        };
+        var obj2 = {
+            name: '弱化机构',
+            type: 'scatter',
+            coordinateSystem: 'bmap',
+            data: convertData(scatterWeak),
+            symbolSize: function (val) {
+                return val[2] / 10;
+            },
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: false
+                },
+                emphasis: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#9bb4f7'
+                }
+            },
+            zlevel: 10
+        };
+        scatterArr.push(obj0);
+    };
+    //过滤掉机构（加深、弱化）=============
+    var separateOrg = function (curData, scatter, scatterWeak) {
+
+        var scatterTemp = [];
+        for (var i = 0; i < curData.length; i++) {
+            if (i == 0) {
+                scatterTemp.push(curData[i][0]);
+                scatterTemp.push(curData[i][1]);
+            } else {
+                scatterTemp.push(curData[i][1]);
+            }
+        }
+        for (var j = 0; j < valData.length; j++) {
+            var a = false;
+            for (var k = 0; k < scatterTemp.length; k++) {
+                if (scatterTemp[k]["name"] == valData[j]["name"]) {
+                    a = false;
+                    break;
+                } else {
+                    a = true;
+                }
+            }
+            if (a == true || curData.length < 1) {
+                scatterWeak.push(valData[j]);
+            } else {
+                scatter.push(valData[j]);
+            }
+        }
+    };
+    //返回公司连线option
+    var convertLinesData = function (param, curArr, orgArr) {
+
+        for (var i = 0; i < param.length; i++) {
+            var line = {
+                name: "",
+                type: 'lines',
+                cursor: "default",
+                zlevel: 2,
+                coordinateSystem: 'bmap',
+                symbol: ['none', 'none'],//起点标记的图形。
+                symbolSize: 10,
+                effect: {//线特效的配置
+                    show: true,
+                    period: 6,//默认4   特效动画的时间，单位为 s。
+                    trailLength: 0,//默认0.2 特效尾迹的长度。取从 0 到 1 的值，数值越大尾迹越长。
+                    symbol: planePath,//表现飞机的图形
+                    symbolSize: 15
+                },
+                lineStyle: {
+                    normal: {
+                        color: "#1B7CF8",
+                        width: 1,
+                        opacity: 0.4,
+                        curveness: 0//0.2 航线弯曲度-边的曲度，支持从 0 到 1 的值，值越大曲度越大。
+                    }
+                },
+                data: []
+            };
+            var lineBlod = {
+                name: "",
+                type: 'lines',
+                cursor: "default",
+                zlevel: 2,
+                coordinateSystem: 'bmap',
+                symbol: ['none', 'none'],//起点标记的图形。
+                symbolSize: 10,
+                effect: {//线特效的配置
+                    show: true,
+                    period: 6,//默认4   特效动画的时间，单位为 s。
+                    trailLength: 0,//默认0.2 特效尾迹的长度。取从 0 到 1 的值，数值越大尾迹越长。
+                    symbol: planePath,//表现飞机的图形
+                    symbolSize: 15
+                },
+                lineStyle: {
+                    normal: {
+                        color: "#1B7CF8",
+                        width: 1,
+                        opacity: 1,
+                        curveness: 0//0.2 航线弯曲度-边的曲度，支持从 0 到 1 的值，值越大曲度越大。
+                    }
+                },
+                data: []
+            };
+            if (curArr == param[i]) {
+                lineBlod.data.push(convertDataLines(param[i]));
+                orgArr.push(lineBlod);
+            } else {
+                line.data = convertDataLines(param[i]);
+                orgArr.push(line);
+            }
+        }
+    };
+
+    //坐标数据转换
+    var convertData = function (data) {
+        var res = [];
+        //if(data==undefined||data.length==0) return res;
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = localtionMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value),
+                    money: data[i].money
+                });
+            }
+        }
+        return res;
+    };
+    var isContains = function (langted, list) {
+        var res = false;
+        for (var i = 0; i < list.length; i++) {
+            if (list[i]["value"][0] == langted) {
+                res = true;
+                break;
+            }
+        }
+        return res;
+    };
+    var convertDataLines = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var dataItem = data[i];
+            var fromCoord = localtionMap[dataItem[0].name];
+            var toCoord = localtionMap[dataItem[1].name];
+            if (fromCoord && toCoord) {
+                res.push({
+                    fromName: dataItem[0].name,
+                    toName: dataItem[1].name,
+                    coords: [fromCoord, toCoord]
+                });
+            }
+        }
+        return res;
+    };
+
+    //获取数据
+   initBmap();
+    //getServerData();
+
+</script>
+</body>
+</html>

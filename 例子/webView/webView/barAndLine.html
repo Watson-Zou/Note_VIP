@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="echarts.min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /*清除点击效果*/
+        div,a,img {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select:none;
+        }
+        /*清除换行*/
+        div {
+            white-space:nowrap;
+        }
+        #container {
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="container"></div>
+
+<script type="text/javascript">
+
+    //展现数据天数
+    var dayCounts = 0;
+
+    function loadEcharts(data) {
+
+        //设置样式
+        var itemStyle = {
+
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowColor: 'gray',
+                    shadowOffsetX: 5,
+                    shadowOffsetY: 5
+
+                }
+            }
+
+        dayCounts = data['income'].length;
+
+
+        //设置横坐标展示个数
+        var xNum = 100;
+        if (dayCounts == 30) {
+            xNum = 22;
+        } else if (dayCounts == 90) {
+            xNum = 8;
+        }
+
+        //初始化设置折线图
+        var myChart = echarts.init(document.getElementById("container"));
+
+        var option = {
+            tooltip : {
+                trigger: 'axis'
+            },
+
+            calculable : true,
+            dataZoom: [
+                {
+                    type: 'slider',
+                    show: false,
+                    xAxisIndex: [0],
+                    start: 0,
+                    end: xNum,
+                    minSpan: xNum
+                },
+                {
+                    type: 'inside',
+                    xAxisIndex: [0],
+                    start: 0,
+                    end: xNum,
+                    minSpan: xNum
+                }
+            ],
+            grid: {//网格设置
+                x: 10,
+                y: 40,
+                x2: 10,
+                y2: 10,
+                show: false,
+                borderColor: "#e4e4e4",
+                shadowColor: "#e4e4e4",
+                borderWidth: "0.2",
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : getDates()
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    name : '金额',
+                    axisLabel : {
+                        formatter: '{value}元'
+                    }
+                }
+            ],
+            series : [
+
+                {
+                    name:'收入',
+                    color: 'blue',
+                    type:'bar',
+                    stack: 'one',
+                    barMaxWidth: 20,
+                    itemStyle: itemStyle,
+                    data: data['income']
+                },
+                {
+                    name:'支出',
+                    color: 'gray',
+                    type:'bar',
+                    stack: 'one',
+                    barMaxWidth: 20,
+                    itemStyle: itemStyle,
+                    data: data['disburse']
+                },
+                {
+                    name:'平均',
+                    type:'line',
+                    color: 'red',
+                    smooth: true,
+                    data: data['average']
+                }
+            ]
+        };
+
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    }
+
+    var data = {};
+//    data['income'] = [-360, -590, -886, -264, -387, -707, -178];
+    data['income'] = [-360, -590, -886, -264, -387, -707, -178, -360, -590, -886, -264, -387, -707, -178, -360, -590, -886, -264, -387, -707, -178, -360, -590, -886, -264, -387, -707, -178, -450, -780];
+//    data['disburse'] = [260, 590, 700, 800, 450, 560, 400];
+    data['disburse'] = [260, 590, 700, 800, 450, 560, 400, 260, 590, 700, 800, 450, 560, 400, 260, 590, 700, 800, 450, 560, 400, 260, 590, 700, 800, 450, 560, 400, 600, 720];
+//    data['average'] = [100, 200, 303, 405, 603, 540, 356];
+    data['average'] = [100, 200, 303, 405, 603, 540, 356, 100, 200, 303, 405, 603, 540, 356, 100, 200, 303, 405, 603, 540, 356, 100, 200, 303, 405, 603, 540, 356, 650, 780];
+    loadEcharts(data);
+
+
+    //构造日期数组
+    function getDates() {
+        var dates = [];
+        for (var i = 0; i < dayCounts; i++) {
+            dates.push(getDay(-i));
+
+        }
+        return dates.reverse();
+    }
+
+    //获取指定日期
+    function getDay(day) {
+        var today = new Date();
+        var targetDay = today.getTime() + 1000 * 60 * 60 * 24 * day;
+        today.setTime(targetDay);
+        var tMonth = today.getMonth() + 1;
+        var tDate = today.getDate();
+        return tMonth + "." + tDate;
+    }
+
+
+</script>
+</body>
+</html>

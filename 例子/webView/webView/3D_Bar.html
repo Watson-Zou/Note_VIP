@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="echarts.min.js"></script>
+    <script type="text/javascript" src="echarts-gl.min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /*清除点击效果*/
+        div,a,img {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select:none;
+        }
+        /*清除换行*/
+        div {
+            white-space:nowrap;
+        }
+        #container {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="container"></div>
+
+<script type="text/javascript">
+
+    var chart = echarts.init(document.getElementById('container'));
+
+    function loadChart(xdata,ydata,citydata) {
+        option = {
+            xAxis3D: {
+                type: 'category',
+                show: false,
+                data: xdata,
+                axisTick: {
+                    show: true
+                },
+            },
+            yAxis3D: {
+                type: 'category',
+                show: false,
+                data: ydata,
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(0,0,0,0)'
+                    }
+                }
+            },
+            zAxis3D: {
+                type: 'value',
+                show: false
+            },
+            grid3D: {
+                show: false,
+                boxWidth: 200,
+                boxDepth: 80,
+                axisPointer: {
+                    show: false
+                },
+                viewControl: {
+                    beta: 45,//设置旋转角度
+                    autoRotate: false,//取消自动旋转
+                    rotateSensitivity: 0//取消转动
+                },
+                light: {
+                    main: {
+                        intensity: 1.2,//主光源的强度
+                        shadow: true
+                    },
+                    ambient: {
+                        intensity: 0.3
+                    }
+                }
+            },
+            series: [
+                {
+                    type: 'bar3D',
+                    barSize: 35,
+                    stack: 'one',
+                    data: [40],
+                    shading: 'lambert',
+                    itemStyle: {
+                        opacity: 1,
+                        color: '#4B5EED',
+                    },
+                    label: {
+                        show: false
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            opacity: 1,
+                            color: '#4B5EED',
+                        },
+                        label: {
+                            show: false
+                        }
+
+                    }
+                },
+                {
+                    type: 'bar3D',
+                    barSize: 35,
+                    data: [20],
+                    stack: 'one',
+                    shading: 'lambert',
+                    itemStyle: {
+                        opacity: 1,
+                        color: '#F44B3B',
+
+//                        borderWidth: 10,
+//                        borderColor:'#fff',
+                    },
+                    label: {
+                        show: false,
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            opacity: 1,
+                            color: '#F44B3B',
+                        },
+                        label: {
+                            show: false
+                        }
+
+                    }
+                },
+                {
+                    type: 'bar3D',
+                    barSize: 35,
+                    data: [70],
+                    stack: 'one',
+                    shading: 'lambert',
+                    itemStyle: {
+                        opacity: 1,
+                        color: '#33BAE8',
+                    },
+                    label: {
+                        show: false
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            opacity: 1,
+                            color: '#33BAE8',
+                        },
+                        label: {
+                            show: false
+                        }
+
+                    }
+
+                }]
+        }
+        chart.setOption(option, true);
+    }
+
+    loadChart([0], [0], [0]);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A905CB5620DB576F00F45921 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A905CB5520DB576F00F45921 /* AppDelegate.m */; };
+		A905CB5920DB576F00F45921 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A905CB5820DB576F00F45921 /* ViewController.m */; };
+		A905CB5C20DB577000F45921 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A905CB5A20DB577000F45921 /* Main.storyboard */; };
+		A905CB5E20DB578D00F45921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A905CB5D20DB578D00F45921 /* Assets.xcassets */; };
+		A905CB6120DB578D00F45921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A905CB5F20DB578D00F45921 /* LaunchScreen.storyboard */; };
+		A905CB6420DB578D00F45921 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A905CB6320DB578D00F45921 /* main.m */; };
+		A905CB7C20DB7A9800F45921 /* chinaMap2_1.html in Resources */ = {isa = PBXBuildFile; fileRef = A905CB7B20DB7A9800F45921 /* chinaMap2_1.html */; };
+		A905CB7E20DB7AA400F45921 /* chinaMap.html in Resources */ = {isa = PBXBuildFile; fileRef = A905CB7D20DB7AA400F45921 /* chinaMap.html */; };
+		A905CB8020DB7ACF00F45921 /* echarts.js in Resources */ = {isa = PBXBuildFile; fileRef = A905CB7F20DB7ACF00F45921 /* echarts.js */; };
+		A905CB8A20DB8CDF00F45921 /* bmap.js in Resources */ = {isa = PBXBuildFile; fileRef = A905CB8220DB8CDE00F45921 /* bmap.js */; };
+		A905CB8C20DB8CDF00F45921 /* dataTool.min.js in Resources */ = {isa = PBXBuildFile; fileRef = A905CB8420DB8CDE00F45921 /* dataTool.min.js */; };
+		A905CB8D20DB8CDF00F45921 /* echarts-3.8.0.js in Resources */ = {isa = PBXBuildFile; fileRef = A905CB8520DB8CDE00F45921 /* echarts-3.8.0.js */; };
+		A905CB8E20DB8CDF00F45921 /* echarts-all-3.js in Resources */ = {isa = PBXBuildFile; fileRef = A905CB8620DB8CDE00F45921 /* echarts-all-3.js */; };
+		A905CB8F20DB8CDF00F45921 /* ecStat.min.js in Resources */ = {isa = PBXBuildFile; fileRef = A905CB8720DB8CDE00F45921 /* ecStat.min.js */; };
+		A905CB9020DB8CDF00F45921 /* jquery-1.11.0.min.js in Resources */ = {isa = PBXBuildFile; fileRef = A905CB8820DB8CDE00F45921 /* jquery-1.11.0.min.js */; };
+		A905CB9120DB8CDF00F45921 /* world.js in Resources */ = {isa = PBXBuildFile; fileRef = A905CB8920DB8CDE00F45921 /* world.js */; };
+		A93BD14221391DB000E59C8B /* barAndLine.html in Resources */ = {isa = PBXBuildFile; fileRef = A93BD14121391DAF00E59C8B /* barAndLine.html */; };
+		A93BD1442139208100E59C8B /* echarts.min.js in Resources */ = {isa = PBXBuildFile; fileRef = A93BD1432139208100E59C8B /* echarts.min.js */; };
+		A9C134FA2109B32000BCF83E /* china.js in Resources */ = {isa = PBXBuildFile; fileRef = A9C134F62109B32000BCF83E /* china.js */; };
+		A9C134FB2109B32000BCF83E /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = A9C134F82109B32000BCF83E /* text.png */; };
+		A9C134FC2109B32000BCF83E /* pieCharts1.html in Resources */ = {isa = PBXBuildFile; fileRef = A9C134F92109B32000BCF83E /* pieCharts1.html */; };
+		A9C134FE2109B60D00BCF83E /* pieCharts.html in Resources */ = {isa = PBXBuildFile; fileRef = A9C134FD2109B60D00BCF83E /* pieCharts.html */; };
+		A9C135002109BF1200BCF83E /* pieCharts2.html in Resources */ = {isa = PBXBuildFile; fileRef = A9C134FF2109BF1200BCF83E /* pieCharts2.html */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A905CB5120DB576F00F45921 /* webView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = webView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A905CB5420DB576F00F45921 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A905CB5520DB576F00F45921 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A905CB5720DB576F00F45921 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A905CB5820DB576F00F45921 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A905CB5B20DB577000F45921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A905CB5D20DB578D00F45921 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A905CB6020DB578D00F45921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A905CB6220DB578D00F45921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A905CB6320DB578D00F45921 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A905CB7B20DB7A9800F45921 /* chinaMap2_1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = chinaMap2_1.html; sourceTree = "<group>"; };
+		A905CB7D20DB7AA400F45921 /* chinaMap.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = chinaMap.html; sourceTree = "<group>"; };
+		A905CB7F20DB7ACF00F45921 /* echarts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = echarts.js; sourceTree = "<group>"; };
+		A905CB8220DB8CDE00F45921 /* bmap.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bmap.js; sourceTree = "<group>"; };
+		A905CB8420DB8CDE00F45921 /* dataTool.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dataTool.min.js; sourceTree = "<group>"; };
+		A905CB8520DB8CDE00F45921 /* echarts-3.8.0.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "echarts-3.8.0.js"; sourceTree = "<group>"; };
+		A905CB8620DB8CDE00F45921 /* echarts-all-3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "echarts-all-3.js"; sourceTree = "<group>"; };
+		A905CB8720DB8CDE00F45921 /* ecStat.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ecStat.min.js; sourceTree = "<group>"; };
+		A905CB8820DB8CDE00F45921 /* jquery-1.11.0.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.11.0.min.js"; sourceTree = "<group>"; };
+		A905CB8920DB8CDE00F45921 /* world.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = world.js; sourceTree = "<group>"; };
+		A93BD14121391DAF00E59C8B /* barAndLine.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = barAndLine.html; sourceTree = "<group>"; };
+		A93BD1432139208100E59C8B /* echarts.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = echarts.min.js; path = webView/echarts.min.js; sourceTree = SOURCE_ROOT; };
+		A9C134F62109B32000BCF83E /* china.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = china.js; sourceTree = "<group>"; };
+		A9C134F82109B32000BCF83E /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
+		A9C134F92109B32000BCF83E /* pieCharts1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pieCharts1.html; sourceTree = "<group>"; };
+		A9C134FD2109B60D00BCF83E /* pieCharts.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pieCharts.html; sourceTree = "<group>"; };
+		A9C134FF2109BF1200BCF83E /* pieCharts2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pieCharts2.html; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A905CB4E20DB576F00F45921 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A905CB4820DB576E00F45921 = {
+			isa = PBXGroup;
+			children = (
+				A905CB5320DB576F00F45921 /* webView */,
+				A905CB5220DB576F00F45921 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A905CB5220DB576F00F45921 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A905CB5120DB576F00F45921 /* webView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A905CB5320DB576F00F45921 /* webView */ = {
+			isa = PBXGroup;
+			children = (
+				A93BD14121391DAF00E59C8B /* barAndLine.html */,
+				A9C134FF2109BF1200BCF83E /* pieCharts2.html */,
+				A9C134FD2109B60D00BCF83E /* pieCharts.html */,
+				A9C134F92109B32000BCF83E /* pieCharts1.html */,
+				A9C134F62109B32000BCF83E /* china.js */,
+				A9C134F72109B32000BCF83E /* image */,
+				A905CB8120DB8CDE00F45921 /* echarts */,
+				A905CB5420DB576F00F45921 /* AppDelegate.h */,
+				A905CB5520DB576F00F45921 /* AppDelegate.m */,
+				A905CB7B20DB7A9800F45921 /* chinaMap2_1.html */,
+				A905CB7D20DB7AA400F45921 /* chinaMap.html */,
+				A905CB7F20DB7ACF00F45921 /* echarts.js */,
+				A905CB5720DB576F00F45921 /* ViewController.h */,
+				A905CB5820DB576F00F45921 /* ViewController.m */,
+				A905CB5A20DB577000F45921 /* Main.storyboard */,
+				A905CB5D20DB578D00F45921 /* Assets.xcassets */,
+				A905CB5F20DB578D00F45921 /* LaunchScreen.storyboard */,
+				A905CB6220DB578D00F45921 /* Info.plist */,
+				A905CB6320DB578D00F45921 /* main.m */,
+			);
+			path = webView;
+			sourceTree = "<group>";
+		};
+		A905CB8120DB8CDE00F45921 /* echarts */ = {
+			isa = PBXGroup;
+			children = (
+				A93BD1432139208100E59C8B /* echarts.min.js */,
+				A9C134F82109B32000BCF83E /* text.png */,
+				A905CB8220DB8CDE00F45921 /* bmap.js */,
+				A905CB8420DB8CDE00F45921 /* dataTool.min.js */,
+				A905CB8520DB8CDE00F45921 /* echarts-3.8.0.js */,
+				A905CB8620DB8CDE00F45921 /* echarts-all-3.js */,
+				A905CB8720DB8CDE00F45921 /* ecStat.min.js */,
+				A905CB8820DB8CDE00F45921 /* jquery-1.11.0.min.js */,
+				A905CB8920DB8CDE00F45921 /* world.js */,
+			);
+			path = echarts;
+			sourceTree = "<group>";
+		};
+		A9C134F72109B32000BCF83E /* image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A905CB5020DB576F00F45921 /* webView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A905CB6720DB578D00F45921 /* Build configuration list for PBXNativeTarget "webView" */;
+			buildPhases = (
+				A905CB4D20DB576F00F45921 /* Sources */,
+				A905CB4E20DB576F00F45921 /* Frameworks */,
+				A905CB4F20DB576F00F45921 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = webView;
+			productName = webView;
+			productReference = A905CB5120DB576F00F45921 /* webView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A905CB4920DB576E00F45921 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Watson;
+				TargetAttributes = {
+					A905CB5020DB576F00F45921 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = A905CB4C20DB576E00F45921 /* Build configuration list for PBXProject "webView" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A905CB4820DB576E00F45921;
+			productRefGroup = A905CB5220DB576F00F45921 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A905CB5020DB576F00F45921 /* webView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A905CB4F20DB576F00F45921 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A93BD14221391DB000E59C8B /* barAndLine.html in Resources */,
+				A93BD1442139208100E59C8B /* echarts.min.js in Resources */,
+				A905CB6120DB578D00F45921 /* LaunchScreen.storyboard in Resources */,
+				A905CB9120DB8CDF00F45921 /* world.js in Resources */,
+				A905CB8C20DB8CDF00F45921 /* dataTool.min.js in Resources */,
+				A905CB5E20DB578D00F45921 /* Assets.xcassets in Resources */,
+				A9C134FE2109B60D00BCF83E /* pieCharts.html in Resources */,
+				A905CB8E20DB8CDF00F45921 /* echarts-all-3.js in Resources */,
+				A905CB9020DB8CDF00F45921 /* jquery-1.11.0.min.js in Resources */,
+				A9C134FC2109B32000BCF83E /* pieCharts1.html in Resources */,
+				A905CB8D20DB8CDF00F45921 /* echarts-3.8.0.js in Resources */,
+				A905CB7C20DB7A9800F45921 /* chinaMap2_1.html in Resources */,
+				A9C134FA2109B32000BCF83E /* china.js in Resources */,
+				A905CB8F20DB8CDF00F45921 /* ecStat.min.js in Resources */,
+				A905CB7E20DB7AA400F45921 /* chinaMap.html in Resources */,
+				A9C135002109BF1200BCF83E /* pieCharts2.html in Resources */,
+				A9C134FB2109B32000BCF83E /* text.png in Resources */,
+				A905CB8A20DB8CDF00F45921 /* bmap.js in Resources */,
+				A905CB5C20DB577000F45921 /* Main.storyboard in Resources */,
+				A905CB8020DB7ACF00F45921 /* echarts.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A905CB4D20DB576F00F45921 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A905CB5920DB576F00F45921 /* ViewController.m in Sources */,
+				A905CB6420DB578D00F45921 /* main.m in Sources */,
+				A905CB5620DB576F00F45921 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A905CB5A20DB577000F45921 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A905CB5B20DB577000F45921 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A905CB5F20DB578D00F45921 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A905CB6020DB578D00F45921 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A905CB6520DB578D00F45921 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A905CB6620DB578D00F45921 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A905CB6820DB578D00F45921 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FL9RCFW2SZ;
+				INFOPLIST_FILE = webView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.EchartsDemo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A905CB6920DB578D00F45921 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FL9RCFW2SZ;
+				INFOPLIST_FILE = webView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.EchartsDemo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A905CB4C20DB576E00F45921 /* Build configuration list for PBXProject "webView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A905CB6520DB578D00F45921 /* Debug */,
+				A905CB6620DB578D00F45921 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A905CB6720DB578D00F45921 /* Build configuration list for PBXNativeTarget "webView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A905CB6820DB578D00F45921 /* Debug */,
+				A905CB6920DB578D00F45921 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A905CB4920DB576E00F45921 /* Project object */;
+}
