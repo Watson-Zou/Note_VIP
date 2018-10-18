@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script src="echarts.js"></script>
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #main {
+            width:300px;
+            height:300px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+<div id="main"></div>
+<script>
+
+
+    function loadPieCharts(data) {
+        var option = {
+          title: {
+            text: '你幸福吗？',
+            x: 'center',
+            y: 'center',
+            textStyle : {
+              color : 'rgba(30,144,255,0.8)',
+              fontFamily : '微软雅黑',
+              fontSize : 20,
+              fontWeight : 'bolder'
+            }
+          },
+            series : [
+
+                {
+                    name:'人民币余额分布',
+                    type:'pie',
+                    center : ['50%', '50%'],
+                    radius : [73, 77],
+                    hoverAnimation: false,//取消扇区上的放大动画效果
+                    itemStyle : {
+                        normal : {
+                            label : {
+                                show: false,
+                              position : 'center',
+                                formatter : "{d}%",//设置显示为比例
+                                //formatter : function (params) {
+                                //return (params.percent - 0).toFixed(2) + '%'
+                                //},
+                                textStyle : {
+//                                    align : 'center',
+//                                    baseline : 'middle',
+                                    fontFamily : 'SFUIDisplay-Regular',
+                                    fontSize : 12,
+                                    fontWeight : 'bolder'
+                                }
+                            },
+//                            labelLine : {
+//                                show : false,
+//                                length : 20,
+//                                color : 'rgba(255,180,0,0.2)',
+//                                lineStyle : {
+//                                    width : 0.5,
+//                                    type : 'solid'
+//                                }
+//                            }
+                        },
+                      emphasis : {
+
+                        label : {
+                          show : false,
+                          position : 'center',
+                          formatter : "{d}%",
+                          textStyle : {
+                            color : 'red',
+                            fontSize : '30',
+                            fontFamily : '微软雅黑',
+                            fontWeight : 'bold'
+                          }
+                        }
+                      }
+                    },
+                    data:data
+                }
+            ]
+        };
+        var chart = echarts.init(document.getElementById('main'));
+        chart.setOption(option);
+    }
+
+    loadPieCharts(['620','150','90','80','40','15','5']);
+
+
+</script>
+</body>
+</html>
